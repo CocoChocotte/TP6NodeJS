@@ -1,0 +1,26 @@
+image: node:latest
+
+ 
+stages:
+- quality
+- package
+- deploy
+
+lint:
+    stage: quality
+    script:
+        - npm install
+        - npm run lint
+test:
+    stage: quality
+    script:
+        - npm install
+        - npm run test
+build:
+    stage: package
+    script:
+        - echo "ça build"
+heroku:
+    stage: deploy
+    script:
+        - echo "c'est déployer"
